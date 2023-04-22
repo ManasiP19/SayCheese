@@ -36,29 +36,32 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Malgun Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(12, 32);
+            label1.Location = new Point(15, 40);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(88, 28);
+            label1.Size = new Size(106, 32);
             label1.TabIndex = 0;
             label1.Text = "PROMO";
             // 
             // richTextBox1
             // 
             richTextBox1.BackColor = SystemColors.Control;
-            richTextBox1.Location = new Point(106, 32);
+            richTextBox1.Location = new Point(132, 40);
+            richTextBox1.Margin = new Padding(4, 4, 4, 4);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(649, 120);
+            richTextBox1.Size = new Size(810, 149);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
             // 
             // PromotionForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(800, 187);
+            ClientSize = new Size(1000, 547);
             Controls.Add(richTextBox1);
             Controls.Add(label1);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "PromotionForm";
             Text = "PromotionForm";
             ResumeLayout(false);
