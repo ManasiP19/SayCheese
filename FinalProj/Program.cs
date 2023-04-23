@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace FinalProj
 {
     internal static class Program
@@ -15,6 +17,7 @@ namespace FinalProj
 
             Customer c1 = new Customer();
             Customer c2 = new Customer();
+            Cheese c = new Cheese();
             //Customer c3 = new Customer();
 
             Application.Run();
