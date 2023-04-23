@@ -12,12 +12,14 @@ namespace FinalProj
             listBox3.Visible = false;
             label5.Visible = false;
             listBox5.Visible = false;
+            
             customer = c;
-            string menuPath = "D:\\Uni\\Semester 6 SP23\\SWENG 421\\Final Project\\FinalProj\\Menu.txt";
-            string addOnPath = "D:\\Uni\\Semester 6 SP23\\SWENG 421\\Final Project\\FinalProj\\AddOn.txt";
-            string saucePath = "D:\\Uni\\Semester 6 SP23\\SWENG 421\\Final Project\\FinalProj\\Sauces.txt";
-            string ingredientsPath = "D:\\Uni\\Semester 6 SP23\\SWENG 421\\Final Project\\FinalProj\\Ingredients.txt";
 
+            string menuPath = "..\\..\\..\\Menu.txt";
+            string addOnPath = "..\\..\\..\\AddOn.txt";
+            string saucePath = "..\\..\\..\\Sauces.txt";
+            string ingredientsPath = "..\\..\\..\\Ingredients.txt";
+            
             StreamReader menuIn = File.OpenText(menuPath);
             StreamReader addOnIn = File.OpenText(addOnPath);
             StreamReader sauceIn = File.OpenText(saucePath);
@@ -85,7 +87,7 @@ namespace FinalProj
             }
             else
             {
-                listBox4.Items.Add(listBox2.SelectedItem.ToString());
+                listBox4.Items.Add(item);
             }
         }
 
