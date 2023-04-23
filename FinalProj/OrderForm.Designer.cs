@@ -1,11 +1,11 @@
 ﻿namespace FinalProj
 {
-    partial class OrderForm
+    public partial class OrderForm
     {
         /// <summary>
         ///  Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        public System.ComponentModel.IContainer components = null;
 
         /// <summary>
         ///  Clean up any resources being used.
@@ -47,10 +47,11 @@
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 25;
             listBox1.Location = new Point(39, 60);
-            listBox1.Margin = new Padding(4, 4, 4, 4);
+            listBox1.Margin = new Padding(4);
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(236, 229);
             listBox1.TabIndex = 0;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -67,10 +68,11 @@
             listBox2.FormattingEnabled = true;
             listBox2.ItemHeight = 25;
             listBox2.Location = new Point(500, 60);
-            listBox2.Margin = new Padding(4, 4, 4, 4);
+            listBox2.Margin = new Padding(4);
             listBox2.Name = "listBox2";
             listBox2.Size = new Size(236, 229);
             listBox2.TabIndex = 2;
+            listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -87,7 +89,7 @@
             listBox3.FormattingEnabled = true;
             listBox3.ItemHeight = 25;
             listBox3.Location = new Point(773, 60);
-            listBox3.Margin = new Padding(4, 4, 4, 4);
+            listBox3.Margin = new Padding(4);
             listBox3.Name = "listBox3";
             listBox3.Size = new Size(236, 229);
             listBox3.TabIndex = 4;
@@ -107,7 +109,7 @@
             // 
             checkBox1.AutoSize = true;
             checkBox1.Location = new Point(630, 506);
-            checkBox1.Margin = new Padding(4, 4, 4, 4);
+            checkBox1.Margin = new Padding(4);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(227, 29);
             checkBox1.TabIndex = 6;
@@ -118,7 +120,7 @@
             // button1
             // 
             button1.Location = new Point(630, 379);
-            button1.Margin = new Padding(4, 4, 4, 4);
+            button1.Margin = new Padding(4);
             button1.Name = "button1";
             button1.Size = new Size(235, 70);
             button1.TabIndex = 7;
@@ -132,8 +134,9 @@
             listBox4.ItemHeight = 25;
             listBox4.Location = new Point(27, 406);
             listBox4.Name = "listBox4";
-            listBox4.Size = new Size(180, 129);
+            listBox4.Size = new Size(462, 154);
             listBox4.TabIndex = 8;
+            listBox4.SelectedIndexChanged += listBox4_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -152,6 +155,7 @@
             listBox5.Name = "listBox5";
             listBox5.Size = new Size(180, 204);
             listBox5.TabIndex = 10;
+            listBox5.SelectedIndexChanged += listBox5_SelectedIndexChanged;
             // 
             // label5
             // 
@@ -166,7 +170,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1033, 562);
+            ClientSize = new Size(1033, 602);
             Controls.Add(label5);
             Controls.Add(listBox5);
             Controls.Add(label4);
@@ -179,7 +183,7 @@
             Controls.Add(listBox2);
             Controls.Add(label1);
             Controls.Add(listBox1);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "OrderForm";
             Text = "Form1";
             ResumeLayout(false);
@@ -188,17 +192,17 @@
 
         #endregion
 
-        private ListBox listBox1;
-        private Label label1;
-        private ListBox listBox2;
-        private Label label2;
-        private ListBox listBox3;
-        private Label label3;
-        private CheckBox checkBox1;
-        private Button button1;
-        private ListBox listBox4;
-        private Label label4;
-        private ListBox listBox5;
-        private Label label5;
+        public ListBox listBox1;
+        public Label label1;
+        public ListBox listBox2;
+        public Label label2;
+        public ListBox listBox3;
+        public Label label3;
+        public CheckBox checkBox1;
+        public Button button1;
+        public ListBox listBox4;
+        public Label label4;
+        public ListBox listBox5;
+        public Label label5;
     }
 }
