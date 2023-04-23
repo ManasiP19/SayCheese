@@ -58,75 +58,82 @@ namespace FinalProj
             // new order object
             Debug.WriteLine("Order is created YAY");
 
-            List<object> orderItems = new List<object>();
+            List<object> orderItems = new List<object>(); // list to store all items from the order placed by the customer
 
-
-
+            string cname;
+            // loop through the box with the list of order items, convert the names to their appropriate class objects and
+            // store them in a list
             foreach (string item in orderform.listBox4.Items)
             {
-                // Debug.WriteLine(name);
-                //Debug.WriteLine(Type.GetType(name));
-                Type t = Type.GetType("FinalProj." + item);
-
-
+                cname = String.Concat(item.Where(c => !Char.IsWhiteSpace(c)));
+                Type t = Type.GetType("FinalProj." + cname);
                 ConstructorInfo c = t.GetConstructor(Type.EmptyTypes);
                 object menuItem = c.Invoke(null);
 
-
-                //Debug.WriteLine(Type.GetType(menuItem.ToString()));
-
-                //if you have an add-on, get the sandwich and then pass that sandwich along with the add-on to a wrapper
                 orderItems.Add(menuItem);
-
-                //order.addItem((MenuItemIF)menuItem);
             }
 
             int idx = 0;
             AbsSandwich currentSandwich = new AbsSandwich();
             List<AddOn> addon = new List<AddOn>();
+
+            // loop through the list of order items and create the appropriate sandwiches
             foreach (Object item in orderItems)
             {
+                // if the order item is a Sandwich object then set the current sandwich = item
+                // also add the completed current sandwich from the previous iteration to the order
                 if (item is FinalProj.AbsSandwich)
                 {
+                    // if this is not the first iteration
                     if (idx == 1)
                     {
-                        if (addon is not null)
+                        // if there are add-ons in the list, add a SandwichWrapper object
+                        if (addon.Count != 0)
                         {
                             order.addItem(new SandwichWrapper(currentSandwich, addon));
+                            addon.Clear(); // clear the add-ons list to start a new sandwich
                         }
+                        // else add a Sandwich object
                         else
                         {
                             order.addItem(currentSandwich);
                         }
                     }
-                    idx = 1;
-                    currentSandwich = (AbsSandwich)item;
+                    idx = 1; // set flag to 1 to indicate that the first iteration has ended
+                    currentSandwich = (AbsSandwich)item; // set the current sandwich to the new sandwich
                 }
-                while (!(item is AbsSandwich))
+                // else if the current item is not a sandwich then it is either an add-on or ingredient and add it to its list
+                else //(!(item is AbsSandwich))
                 {
                     if (item is AddOn)
                     {
-                        addon.Add((AddOn)item);
-                        //Debug.WriteLine("Item " + item);
+                        addon.Add((AddOn)item); // add add-on to the add-ons list
                     }
                     else
                     {
-                        currentSandwich.addIngredient((SandwichCompIF)item);
+                        currentSandwich.addIngredient((SandwichCompIF)item); // add sandwich's ingredients list with extraingredient
                     }
-                    break;
                 }
-                //Debug.WriteLine("Order list has " + order);
-
-              
-
             }
-           
-            if (orderItems[orderItems.Count-1] is AbsSandwich)
+
+            // once loop exited, add the final sandwich to the order list since a sandwich is always added during the next
+            // iteration as it needs to know if there are any more add-ons or ingredients
+            if (addon.Count != 0)
+            {
+                order.addItem(new SandwichWrapper(currentSandwich, addon));
+                addon.Clear();
+            }
+            else
+            {
+                order.addItem(currentSandwich);
+            }
+
+            // if the last item is a sandwich, add it to the order
+            if (orderItems.Count != 0 && orderItems[orderItems.Count-1] is AbsSandwich)
             {
                 order.addItem((AbsSandwich)orderItems[orderItems.Count-1]);
             }
 
-            
             foreach(MenuItemIF m in order.mif)
             {
                 Debug.WriteLine("Item in order " + m);

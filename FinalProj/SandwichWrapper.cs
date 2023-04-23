@@ -14,6 +14,7 @@ namespace FinalProj
         public SandwichWrapper(AbsSandwich sandwich, List<AddOn> addon)
         {
             this.sandwich = sandwich;
+            this.ingredients = sandwich.ingredients;
             foreach (AddOn add in addon)
             {
                 addons.Add(add);
