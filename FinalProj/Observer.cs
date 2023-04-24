@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace FinalProj
 {
-    internal class Promotion
+    public interface ObserverIF
     {
+        public void notify(PromotionalOffer oif);
     }
 }

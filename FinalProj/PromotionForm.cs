@@ -12,9 +12,12 @@ namespace FinalProj
 {
     public partial class PromotionForm : Form
     {
-        public PromotionForm()
+        //PromotionalOffer p = new PromotionalOffer();
+        public PromotionForm(PromotionalOffer p)
         {
             InitializeComponent();
+
+            richTextBox1.Text = "Hello"; 
         }
     }
 }

@@ -54,7 +54,18 @@ namespace FinalProj
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            if(checkBox1.Checked)
+            {
+                customer.promoChecked = true;
+                PromotionalOffer promo = new PromotionalOffer();
+                promo.register(customer);
 
+            }
+            else
+            {
+                customer.promoChecked= false;
+            }
+           
         }
 
         //submit order button
@@ -108,6 +119,8 @@ namespace FinalProj
         {
             listBox4.Items.Add(listBox5.SelectedItem.ToString());
         }
+
+ 
                
     }
 }

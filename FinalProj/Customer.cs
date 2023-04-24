@@ -10,11 +10,13 @@ using System.Xml.Linq;
 namespace FinalProj
 {
     //should inherit from ObserverIF
-    public class Customer
+    public class Customer: ObserverIF
     {
         private OrderForm orderform;
         private ProgressForm progform;
         private PromotionForm promoform;
+        public bool promoChecked;
+        private ObservableIF observable; 
 
         private AbsOrder order = new AbsOrder();
 
@@ -24,11 +26,6 @@ namespace FinalProj
             orderform.Show();
         }
 
-        //notify if they register for pomotions 
-        public void notify()
-        {
-
-        }
 
         //add items to their order before it's been created 
         //should show up in the order box 
@@ -138,6 +135,19 @@ namespace FinalProj
             {
                 Debug.WriteLine("Item in order " + m);
             }
+        }
+
+
+        public void notify(PromotionalOffer oif )
+        {
+            //if customer has registered, then pull up the promo form and have it display every x seconds 
+            //PromotionalOffer promo = new PromotionalOffer(); 
+                PromotionForm promoform = new PromotionForm(oif);
+                promoform.Show();
+
+            
+            
+            
         }
     }
 }
