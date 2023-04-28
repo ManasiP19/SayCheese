@@ -11,19 +11,8 @@ namespace FinalProj
         public List<AbsSandwichIngredients> ingredients = new List<AbsSandwichIngredients>();
         double price;
 
-        public AbsSandwich()
-        {
-
-        }
-        public virtual double getPrice()
-        {
-            return price; 
-        }
-
-        public void setPrice(double price)
-        {
-            this.price = price; 
-        }
+        public virtual double getPrice() { return price; }
+        public void setPrice(double price) { this.price = price; }
 
         //add an extra ingredient to it (like extra cheese)
         public void addIngredient(AbsSandwichIngredients sif)

@@ -8,11 +8,6 @@ namespace FinalProj
 {
     public class Lettuce: AbsSandwichIngredients
     {
-        public Lettuce()
-        {
-            setPrice(0.25);
-        }
-
-        
+        public Lettuce() { setPrice(0.25); }
     }
 }

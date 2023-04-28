@@ -16,15 +16,6 @@ namespace FinalProj
         private bool statusAvailable;
         System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
 
-        public AbsOrder()
-        {
-           /* t.Interval = 3000;
-            t.Tick += new EventHandler(timer_Tick);
-            t.Start();*/
-
-        }
-
-      
         //add a menu item to the list 
         public void addItem(MenuItemIF item) 
         {
@@ -36,33 +27,19 @@ namespace FinalProj
         public double getPrice()
         {
             double totalPrice = 0; 
-          foreach (MenuItemIF item in mif)
+            foreach (MenuItemIF item in mif)
             {
                 totalPrice += item.getPrice();
             }
             return totalPrice; 
         }
-
-        //future java code
-        /**
-         * public synchronized void setStatus(){
-         *  future += " " ;
-         *  notify()
-         * }
-         * 
-         * public string getStatus(){
-         *  while(notReady){ wait(); }
-         *  return status;
-         * } 
-         * */
-
         
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            Debug.WriteLine("Deferring to thread");
+        //private void timer_Tick(object sender, EventArgs e)
+        //{
+        //    Debug.WriteLine("Deferring to thread");
             
-            //statusAvailable = true;
-        }
+        //    //statusAvailable = true;
+        //}
 
         //synchronized
         [MethodImpl(MethodImplOptions.Synchronized)]
@@ -81,11 +58,9 @@ namespace FinalProj
         public void setStatus(int status)
         {
             this.status = status;
-           
             Debug.WriteLine("In AbsOrder: setStatus()");
             statusAvailable = true;
             Monitor.Pulse(this); //notify a thread in a waiting queue of a change in the order's status 
-
         }
     }
 }

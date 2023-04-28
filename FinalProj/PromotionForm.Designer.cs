@@ -28,63 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            richTextBox1 = new RichTextBox();
-            label2 = new Label();
-            SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.PromotionLabel = new System.Windows.Forms.Label();
+            this.Customer = new System.Windows.Forms.Label();
+            this.SuspendLayout();
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Malgun Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(15, 40);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(106, 32);
-            label1.TabIndex = 0;
-            label1.Text = "PROMO";
-            label1.Click += label1_Click;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(12, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 28);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "PROMO";
             // 
-            // richTextBox1
+            // PromotionLabel
             // 
-            richTextBox1.BackColor = SystemColors.Control;
-            richTextBox1.Location = new Point(132, 40);
-            richTextBox1.Margin = new Padding(4);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(810, 149);
-            richTextBox1.TabIndex = 1;
-            richTextBox1.Text = "";
+            this.PromotionLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.PromotionLabel.Location = new System.Drawing.Point(106, 32);
+            this.PromotionLabel.Name = "PromotionLabel";
+            this.PromotionLabel.Size = new System.Drawing.Size(649, 120);
+            this.PromotionLabel.TabIndex = 1;
             // 
-            // label2
+            // Customer
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(39, 9);
-            label2.Name = "label2";
-            label2.Size = new Size(59, 25);
-            label2.TabIndex = 2;
-            label2.Text = "label2";
-            label2.Click += label2_Click;
+            this.Customer.AutoSize = true;
+            this.Customer.Location = new System.Drawing.Point(9, 7);
+            this.Customer.Name = "Customer";
+            this.Customer.Size = new System.Drawing.Size(50, 20);
+            this.Customer.TabIndex = 2;
+            this.Customer.Text = "label2";
             // 
             // PromotionForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
-            ClientSize = new Size(1000, 547);
-            Controls.Add(label2);
-            Controls.Add(richTextBox1);
-            Controls.Add(label1);
-            Margin = new Padding(4);
-            Name = "PromotionForm";
-            Text = "PromotionForm";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(800, 438);
+            this.Controls.Add(this.Customer);
+            this.Controls.Add(this.PromotionLabel);
+            this.Controls.Add(this.label1);
+            this.Name = "PromotionForm";
+            this.Text = "PromotionForm";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
 
         private Label label1;
-        private RichTextBox richTextBox1;
-        private Label label2;
+        private Label PromotionLabel;
+        private Label Customer;
     }
 }

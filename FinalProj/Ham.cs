@@ -8,9 +8,6 @@ namespace FinalProj
 {
     public class Ham : AbsSandwichIngredients
     {
-        public Ham()
-        {
-            setPrice(1.50);
-        }
+        public Ham() { setPrice(1.50); }
     }
 }

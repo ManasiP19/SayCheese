@@ -8,8 +8,6 @@ namespace FinalProj
 {
     public class Chips: Side
     {
-        public Chips() {
-            setPrice( 4.50);
-        }
+        public Chips() { setPrice( 4.50); }
     }
 }

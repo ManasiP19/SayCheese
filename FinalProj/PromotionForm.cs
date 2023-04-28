@@ -20,18 +20,9 @@ namespace FinalProj
             //pick a random string and display it in the box
             var rand = new Random();
             int idx = rand.Next(0, 3);
-            richTextBox1.Text = promoStrings[idx];
+            PromotionLabel.Text = promoStrings[idx];
 
-            label2.Text = "Customer " + customerID; //label with the customer who registered
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            Customer.Text = "Customer " + customerID; //label with the customer who registered
         }
     }
 }

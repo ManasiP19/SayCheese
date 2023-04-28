@@ -8,10 +8,6 @@ namespace FinalProj
 {
     internal class Tomato : AbsSandwichIngredients
     {
-        public Tomato() 
-        {
-            setPrice(0.15); 
-        }
-       
+        public Tomato() { setPrice(0.15); }
     }
 }
