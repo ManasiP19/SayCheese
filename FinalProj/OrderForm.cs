@@ -3,18 +3,20 @@ namespace FinalProj
     public partial class OrderForm : Form
     {
         public Customer customer;
+        PromotionalOffer promo;
 
         public OrderForm(Customer c)
         {
             InitializeComponent();
             //label2.Visible = false;
             //listBox2.Visible = false;
-            //label3.Visible = false;
-            //listBox3.Visible = false;
-            //label5.Visible = false;
-            //listBox5.Visible = false;
+            label3.Visible = false;
+            listBox3.Visible = false;
+            label5.Visible = false;
+            listBox5.Visible = false;
 
             customer = c;
+            promo = new PromotionalOffer();
 
             string menuPath = "..\\..\\..\\Menu.txt";
             string sidesPath = "..\\..\\..\\Sides.txt";
@@ -66,13 +68,12 @@ namespace FinalProj
             if (checkBox1.Checked)
             {
                 customer.promoChecked = true;
-                PromotionalOffer promo = new PromotionalOffer();
                 promo.register(customer);
-
             }
             else
             {
                 customer.promoChecked = false;
+                promo.deregister(customer);
             }
         }
 
@@ -84,16 +85,20 @@ namespace FinalProj
             //if user selects add-ons or sauces, use wrapper to create them 
             //need to keep a list of whatever user has selected in the listboxes so that we can send that to the wrapper
             customer.createOrder();
+            listBox4.Text = "";
+            PriceLabel.Text = "Total Price: $" + customer.getOrder().getPrice().ToString();
+            /*customer.progform = new ProgressForm(status, customer.id);
+            customer.progform.Show();*/
         }
 
         //adds the selected menu item to the order box 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBox4.Items.Add(listBox1.SelectedItem.ToString());
-            //label2.Visible = true;
-            //listBox2.Visible = true;
-            //label5.Visible = true;
-            //listBox5.Visible = true;
+            label3.Visible = true;
+            listBox3.Visible = true;
+            label5.Visible = true;
+            listBox5.Visible = true;
         }
 
         //listbox2 = drinks
@@ -125,16 +130,6 @@ namespace FinalProj
         private void listBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBox4.Items.Add(listBox6.SelectedItem.ToString());
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

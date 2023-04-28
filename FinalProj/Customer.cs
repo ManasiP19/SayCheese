@@ -13,22 +13,28 @@ namespace FinalProj
     //should inherit from ObserverIF
     public class Customer: ObserverIF
     {
-        private OrderForm orderform;
-        private ProgressForm progform;
-        private PromotionForm promoform;
+        public OrderForm orderform;
+        //public ProgressForm progform;
+        public PromotionForm promoform;
         public bool promoChecked;
         private ObservableIF observable;
         public string id; 
 
         private AbsOrder order = new AbsOrder();
 
-        private OrderProgress orderProgress;  //future 
+        public OrderProgress orderProgress;  //future 
+        
         public Customer(string id)
         {
             orderform = new OrderForm(this);
             this.id = id; 
             orderform.label6.Text = "Customer " + id; 
             orderform.Show();
+        }
+
+        public AbsOrder getOrder()
+        {
+            return order;
         }
 
         public string getID()
@@ -60,7 +66,7 @@ namespace FinalProj
         //---if the item is an Add-on, then add it to an array called Add-ons
         //---else just add to sandwich ingredients by calling addIngredients()
         //once you encounter a NEW sandwich item or the end of the list, add the currentSandwich to menuItems[] list in order
-        public void createOrder()
+        public int createOrder()
         {
             // new order object
             Debug.WriteLine("Order is created YAY");
@@ -164,14 +170,12 @@ namespace FinalProj
                 /* Debug.WriteLine("Item in order " + m.GetType());
                  Debug.WriteLine("Item in order " + m);*/
                 Debug.WriteLine("Type of item " + m.GetType());
-               
             }
             Debug.WriteLine("Total price: " + order.getPrice());
-            orderform.Hide();
             orderProgress = new OrderProgress(order, id);
-            int status = orderProgress.getStatus();
-            ProgressForm progressForm = new ProgressForm(status, id);
-            progressForm.Show();
+            return orderProgress.getStatus();
+            //progform = new ProgressForm(status, id);
+            //progform.Show();
             //orderform.Hide();  --to hide form from user once they submit 
         }
 

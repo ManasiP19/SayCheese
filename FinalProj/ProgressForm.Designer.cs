@@ -28,100 +28,98 @@
         /// </summary>
         private void InitializeComponent()
         {
-            progressBar1 = new ProgressBar();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            SuspendLayout();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.OrderReadyLabel = new System.Windows.Forms.Label();
+            this.SuspendLayout();
             // 
             // progressBar1
             // 
-            progressBar1.Location = new Point(32, 164);
-            progressBar1.Margin = new Padding(4, 4, 4, 4);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(939, 98);
-            progressBar1.TabIndex = 0;
+            this.progressBar1.Location = new System.Drawing.Point(26, 131);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(751, 78);
+            this.progressBar1.TabIndex = 0;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Corbel", 28.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(32, 59);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(399, 69);
-            label1.TabIndex = 1;
-            label1.Text = "Order Progress";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Corbel", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(26, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(328, 58);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Order Progress";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(32, 286);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(177, 32);
-            label2.TabIndex = 2;
-            label2.Text = "Order Recieved";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(26, 229);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(145, 28);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Order Recieved";
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(352, 286);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(268, 32);
-            label3.TabIndex = 3;
-            label3.Text = "Order Is Being Prepared";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(282, 229);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(219, 28);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Order Is Being Prepared";
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(758, 286);
-            label4.Margin = new Padding(4, 0, 4, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(209, 32);
-            label4.TabIndex = 4;
-            label4.Text = "Order Is Complete";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(606, 229);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(171, 28);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Order Is Complete";
             // 
-            // label5
+            // OrderReadyLabel
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(9, 9);
-            label5.Name = "label5";
-            label5.Size = new Size(59, 25);
-            label5.TabIndex = 5;
-            label5.Text = "label5";
+            this.OrderReadyLabel.AutoSize = true;
+            this.OrderReadyLabel.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.OrderReadyLabel.Location = new System.Drawing.Point(227, 145);
+            this.OrderReadyLabel.Name = "OrderReadyLabel";
+            this.OrderReadyLabel.Size = new System.Drawing.Size(324, 46);
+            this.OrderReadyLabel.TabIndex = 6;
+            this.OrderReadyLabel.Text = "Your Order is Ready!";
             // 
             // ProgressForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1000, 392);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(progressBar1);
-            Margin = new Padding(4, 4, 4, 4);
-            Name = "ProgressForm";
-            Text = "ProgessForm";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 314);
+            this.Controls.Add(this.OrderReadyLabel);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.progressBar1);
+            this.Name = "ProgressForm";
+            this.Text = "ProgessForm";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
 
-        private ProgressBar progressBar1;
+        public ProgressBar progressBar1;
         private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
+        public Label label2;
+        public Label label3;
+        public Label label4;
         private Label label5;
+        public Label label6;
+        public Label OrderReadyLabel;
     }
 }
