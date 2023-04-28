@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -21,6 +21,7 @@ namespace FinalProj
             //order is a common resource for OrderProgress obj and runner obj to compete with
             //orderprogress delegates to order to prep data i.e. setData() in bg
             this.order = order;
+            progressForm.Customer.Text = "Customer " + id;
             Task.Run(() => run()); 
             t.Interval = 1000;
             t.Tick += new EventHandler(timer_Tick);
@@ -38,7 +39,7 @@ namespace FinalProj
         {
             try
             {
-                order.setStatus(10);
+                order.setStatus(20);
                 Debug.WriteLine("In OrderProgress run(), status: "); 
             }
             catch(Exception ex)
@@ -52,23 +53,24 @@ namespace FinalProj
             Debug.WriteLine("In OrderProgress: getStatus()"); 
             int status = order.getStatus();
 
-            if(progressForm.progressBar1.Value >= 100 )
+            if(progressForm.ProgressBar.Value >= 100 )
             {
                 progressForm.OrderReadyLabel.Visible = true;
-                progressForm.progressBar1.Visible = false;
-                progressForm.label2.Visible = false;
-                progressForm.label3.Visible = false;
-                progressForm.label4.Visible = false;
+                progressForm.ProgressBar.Visible = false;
+                progressForm.ReceivedLabel.Visible = false;
+                progressForm.PreparingLabel.Visible = false;
+                progressForm.CompletedLabel.Visible = false;
                 progressForm.OrderReadyLabel.Text = "Your Order is ready!";
-                progressForm.progressBar1.Value = 100;
+                progressForm.ProgressBar.Value = 100;
             }
             else
             {
                 Debug.WriteLine("status = " + status);
-                progressForm.progressBar1.Value += status;
+                progressForm.ProgressBar.Value += status;
             }
             
-            progressForm.Show(); 
+            progressForm.Show();
+
             return status; 
         }
     }
