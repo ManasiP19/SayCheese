@@ -8,9 +8,6 @@ namespace FinalProj
 {
     public class Fries: Side
     {
-        public Fries()
-        {
-            setPrice(1.50);
-        }
+        public Fries() { setPrice(1.50); }
     }
 }

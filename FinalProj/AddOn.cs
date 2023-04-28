@@ -10,19 +10,7 @@ namespace FinalProj
     {
         double price; 
 
-        public AddOn()
-        {
-
-        }
-
-        public double getPrice()
-        {
-            return price; 
-        }
-
-        public void setPrice(double price)
-        {
-            this.price = price; 
-        }
+        public double getPrice() { return price; }
+        public void setPrice(double price) { this.price = price; }
     }
 }

@@ -8,9 +8,6 @@ namespace FinalProj
 {
     public class Onion : AbsSandwichIngredients
     {
-        public Onion()
-        {
-            setPrice(0.15);
-        }
+        public Onion() { setPrice(0.15); }
     }
 }

@@ -19,12 +19,6 @@ namespace FinalProj
         {
             InitializeComponent();
             OrderReadyLabel.Visible = false;
-            //progValue += value; 
-            //label5.Text = "Customer " + customerID;
-            //progressBar1.Value = progValue; 
-           /* t.Interval = 3000;
-            t.Tick += new EventHandler(timer_Tick);
-            t.Start();*/
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -32,7 +26,6 @@ namespace FinalProj
             int newProgValue = progValue + progressBar1.Value; 
             if(newProgValue >= 100)
             {
-                //t.Stop();
                 this.Close();
             }
             else

@@ -8,13 +8,6 @@ namespace FinalProj
 {
     public class Sauce : AbsSandwichIngredients
     {
-        public Sauce() 
-        {
-            setPrice(0.10); 
-        }
-        
-     
-
-    
+        public Sauce() { setPrice(0.10); }
     }
 }

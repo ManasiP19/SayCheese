@@ -6,11 +6,5 @@ using System.Threading.Tasks;
 
 namespace FinalProj
 {
-    public class Mustard : Sauce
-    {
-        public Mustard() 
-        {
-            
-        }
-    }
+    public class Mustard : Sauce { }
 }

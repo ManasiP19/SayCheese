@@ -8,9 +8,6 @@ namespace FinalProj
 {
     public class Egg : AbsSandwichIngredients
     {
-      public Egg()
-        {
-            setPrice(0.75);
-        }
+        public Egg() { setPrice(0.75); }
     }
 }

@@ -8,9 +8,6 @@ namespace FinalProj
 {
     public class Bread : AbsSandwichIngredients
     {
-       public Bread()
-        {
-            setPrice(3.00);
-        }
+        public Bread() { setPrice(3.00); }
     }
 }
