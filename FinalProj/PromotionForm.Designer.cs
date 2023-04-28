@@ -1,4 +1,4 @@
-﻿namespace FinalProj
+namespace FinalProj
 {
     partial class PromotionForm
     {
@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.Title = new System.Windows.Forms.Label();
             this.PromotionLabel = new System.Windows.Forms.Label();
             this.Customer = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // Title
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 28);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "PROMO";
+            this.Title.AutoSize = true;
+            this.Title.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Title.Location = new System.Drawing.Point(12, 32);
+            this.Title.Name = "Title";
+            this.Title.Size = new System.Drawing.Size(88, 28);
+            this.Title.TabIndex = 0;
+            this.Title.Text = "PROMO";
             // 
             // PromotionLabel
             // 
@@ -68,7 +68,7 @@
             this.ClientSize = new System.Drawing.Size(800, 438);
             this.Controls.Add(this.Customer);
             this.Controls.Add(this.PromotionLabel);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Title);
             this.Name = "PromotionForm";
             this.Text = "PromotionForm";
             this.ResumeLayout(false);
@@ -78,7 +78,7 @@
 
         #endregion
 
-        private Label label1;
+        private Label Title;
         private Label PromotionLabel;
         private Label Customer;
     }
