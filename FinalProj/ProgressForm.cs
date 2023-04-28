@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,7 +23,7 @@ namespace FinalProj
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            int newProgValue = progValue + progressBar1.Value; 
+            int newProgValue = progValue + ProgressBar.Value; 
             if(newProgValue >= 100)
             {
                 this.Close();
@@ -31,7 +31,7 @@ namespace FinalProj
             else
             {
                 Debug.WriteLine("In ProgressForm: Updating progress bar value");
-                progressBar1.Value += newProgValue;
+                ProgressBar.Value += newProgValue;
             }
         }
     }
