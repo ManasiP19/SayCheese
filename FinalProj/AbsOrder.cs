@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FinalProj
 {
-    public  class AbsOrder
+    public class AbsOrder
     {
         //order has a list of menu items 
         public List<MenuItemIF> mif = new List<MenuItemIF>();
@@ -70,7 +70,7 @@ namespace FinalProj
         {
             while (!statusAvailable)
             {
-                Debug.WriteLine("Wait");
+                Debug.WriteLine("In AbsOrder: getStatus(), Wait");
                 Monitor.Wait(this); //blocks the current thread until it reacquires the lock 
             }
             return status; 
@@ -82,11 +82,10 @@ namespace FinalProj
         {
             this.status = status;
            
-            Debug.WriteLine("Setting status\n ");
+            Debug.WriteLine("In AbsOrder: setStatus()");
             statusAvailable = true;
             Monitor.Pulse(this); //notify a thread in a waiting queue of a change in the order's status 
 
         }
-
     }
 }
