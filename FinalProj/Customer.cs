@@ -17,7 +17,7 @@ namespace FinalProj
         public PromotionForm promoform;
         public bool promoChecked;
         public string id;
-        private AbsOrder order = new AbsOrder();
+        private Order order = new Order();
         public OrderProgress orderProgress;  //future 
         
         public Customer(string id)
@@ -28,7 +28,7 @@ namespace FinalProj
             orderform.Show();
         }
 
-        public AbsOrder getOrder() { return order; }
+        public Order getOrder() { return order; }
 
         public string getID() { return id; }
 
@@ -63,7 +63,7 @@ namespace FinalProj
             //// store them in a list
 
             int idx = 0;
-            AbsSandwich currentSandwich = new AbsSandwich();
+            Sandwich currentSandwich = new Sandwich();
             List<Drink> drinks = new List<Drink>();
             List<Side> sides = new List<Side>();
 
@@ -72,7 +72,7 @@ namespace FinalProj
             {
                 // if the order item is a Sandwich object then set the current sandwich = item
                 // also add the completed current sandwich from the previous iteration to the order
-                if (item is FinalProj.AbsSandwich)
+                if (item is FinalProj.Sandwich)
                 {
                     // if this is not the first iteration
                     if (idx == 1)
@@ -92,7 +92,7 @@ namespace FinalProj
                         }
                     }
                     idx = 1; // set flag to 1 to indicate that the first iteration has ended
-                    currentSandwich = (AbsSandwich)item; // set the current sandwich to the new sandwich
+                    currentSandwich = (Sandwich)item; // set the current sandwich to the new sandwich
                 }
                 // else if the current item is not a sandwich then it is either an add-on ingredient or meal component and
                 // add it to its list
@@ -108,7 +108,7 @@ namespace FinalProj
                     }
                     else
                     {
-                        currentSandwich.addIngredient((AbsSandwichIngredients)item); // add to ingredients list with extra ingredient
+                        currentSandwich.addIngredient((SandwichIngredients)item); // add to ingredients list with extra ingredient
                     }
                 }
             }
@@ -130,9 +130,9 @@ namespace FinalProj
             }
 
             // if the last item is a sandwich, add it to the order
-            if (orderItems.Count != 0 && orderItems[orderItems.Count-1] is AbsSandwich)
+            if (orderItems.Count != 0 && orderItems[orderItems.Count-1] is Sandwich)
             {
-                order.addItem((AbsSandwich)orderItems[orderItems.Count-1]);
+                order.addItem((Sandwich)orderItems[orderItems.Count-1]);
             }
            
             foreach(var m in order.mif)

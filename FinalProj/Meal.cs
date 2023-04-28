@@ -8,13 +8,13 @@ namespace FinalProj
 {
     //Meal Wrapper
     //Customer can order a sandwich along with drink(s) and side(s)
-    public  class Meal: AbsSandwich
+    public  class Meal: Sandwich
     {
-        AbsSandwich sandwich;
+        Sandwich sandwich;
         List<Drink> drinks = new List<Drink>();
         List<Side> sides = new List<Side>();
 
-        public Meal(AbsSandwich sandwich, List<Drink> drinks, List<Side> sides)
+        public Meal(Sandwich sandwich, List<Drink> drinks, List<Side> sides)
         {
             this.sandwich = sandwich;
 

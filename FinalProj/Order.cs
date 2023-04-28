@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FinalProj
 {
-    public class AbsOrder
+    public class Order
     {
         //order has a list of menu items 
         public List<MenuItemIF> mif = new List<MenuItemIF>();

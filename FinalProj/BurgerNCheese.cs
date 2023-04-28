@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinalProj
 {
-    public class BurgerNCheese : AbsSandwich
+    public class BurgerNCheese : Sandwich
     { 
         public BurgerNCheese()
         {

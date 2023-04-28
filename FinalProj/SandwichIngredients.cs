@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinalProj
 {
-    public class AbsSandwichIngredients
+    public class SandwichIngredients
     {
         private double price; 
 

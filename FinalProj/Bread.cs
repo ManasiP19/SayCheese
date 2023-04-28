@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinalProj
 {
-    public class Bread : AbsSandwichIngredients
+    public class Bread : SandwichIngredients
     {
         public Bread() { setPrice(3.00); }
     }
