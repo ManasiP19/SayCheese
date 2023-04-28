@@ -10,5 +10,7 @@ namespace FinalProj
     {
         public void register(ObserverIF o);
         public void deregister(ObserverIF o);
+
+        public List<string> getList(); //get list of promo strings 
     }
 }

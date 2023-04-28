@@ -15,9 +15,9 @@ namespace FinalProj
             ApplicationConfiguration.Initialize();
             
 
-            Customer c1 = new Customer();
-            Customer c2 = new Customer();
-            Cheese c = new Cheese();
+            Customer c1 = new Customer("1");
+            Customer c2 = new Customer("2");
+           
             //Customer c3 = new Customer();
 
             Application.Run();

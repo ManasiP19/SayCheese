@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace FinalProj
 {
-    public class Egg : EggSandwichIngredientsIF
+    public class Egg : AbsSandwichIngredients
     {
-        public double getPrice()
+      public Egg()
         {
-            throw new NotImplementedException();
+            setPrice(0.75);
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,36 @@ namespace FinalProj
 {
     public partial class ProgressForm : Form
     {
-        public ProgressForm()
+        System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
+        int progValue; 
+        public ProgressForm(int value, string customerID)
         {
             InitializeComponent();
+            progValue += value; 
+            label5.Text = "Customer " + customerID;
+            progressBar1.Value = progValue; 
+            t.Interval = 3000;
+            t.Tick += new EventHandler(timer_Tick);
+            t.Start();
         }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            int newProgValue = progValue + progressBar1.Value; 
+           if(newProgValue >= 100)
+            {
+                t.Stop();
+                this.Close();
+            }
+            else
+            {
+                progressBar1.Value += newProgValue;
+            }
+           
+        }
+
+
+
 
 
     }

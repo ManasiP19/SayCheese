@@ -16,6 +16,11 @@ namespace FinalProj
             ingredients.Add(new Bread());
         }
 
+        public override string ToString()
+        {
+            return "HamNCheese"; 
+        }
+
 
     }
 }

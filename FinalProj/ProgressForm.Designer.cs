@@ -33,22 +33,25 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
+            label5 = new Label();
             SuspendLayout();
             // 
             // progressBar1
             // 
-            progressBar1.Location = new Point(26, 131);
+            progressBar1.Location = new Point(32, 164);
+            progressBar1.Margin = new Padding(4, 4, 4, 4);
             progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(751, 78);
+            progressBar1.Size = new Size(939, 98);
             progressBar1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Corbel", 28.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(26, 47);
+            label1.Location = new Point(32, 59);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(328, 58);
+            label1.Size = new Size(399, 69);
             label1.TabIndex = 1;
             label1.Text = "Order Progress";
             // 
@@ -56,9 +59,10 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(26, 229);
+            label2.Location = new Point(32, 286);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(145, 28);
+            label2.Size = new Size(177, 32);
             label2.TabIndex = 2;
             label2.Text = "Order Recieved";
             // 
@@ -66,9 +70,10 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(282, 229);
+            label3.Location = new Point(352, 286);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(219, 28);
+            label3.Size = new Size(268, 32);
             label3.TabIndex = 3;
             label3.Text = "Order Is Being Prepared";
             // 
@@ -76,23 +81,35 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(606, 229);
+            label4.Location = new Point(758, 286);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(171, 28);
+            label4.Size = new Size(209, 32);
             label4.TabIndex = 4;
             label4.Text = "Order Is Complete";
             // 
-            // ProgessForm
+            // label5
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            label5.AutoSize = true;
+            label5.Location = new Point(9, 9);
+            label5.Name = "label5";
+            label5.Size = new Size(59, 25);
+            label5.TabIndex = 5;
+            label5.Text = "label5";
+            // 
+            // ProgressForm
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 314);
+            ClientSize = new Size(1000, 392);
+            Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(progressBar1);
-            Name = "ProgessForm";
+            Margin = new Padding(4, 4, 4, 4);
+            Name = "ProgressForm";
             Text = "ProgessForm";
             ResumeLayout(false);
             PerformLayout();
@@ -105,5 +122,6 @@
         private Label label2;
         private Label label3;
         private Label label4;
+        private Label label5;
     }
 }

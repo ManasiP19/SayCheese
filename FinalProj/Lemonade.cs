@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace FinalProj
 {
-    public interface EggSandwichIngredientsIF : SandwichCompIF
+    public class Lemonade : Drink
     {
+        public Lemonade()
+        {
+            setPrice(2.00);
+        }
     }
 }

@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace FinalProj
 {
-    internal class Tomato : AddOn
+    internal class Tomato : AbsSandwichIngredients
     {
+        public Tomato() 
+        {
+            setPrice(0.15); 
+        }
+       
     }
 }

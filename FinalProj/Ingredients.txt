@@ -3,3 +3,7 @@ Cheese
 Ham
 Egg
 Beef
+Lettuce
+Tomato
+Onion
+Bell Pepper

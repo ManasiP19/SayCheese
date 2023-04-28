@@ -15,5 +15,10 @@ namespace FinalProj
             ingredients.Add(new Cheese());
             ingredients.Add(new Bread()); 
         }
+
+        public override string ToString()
+        {
+            return "BurgerNCheese";
+        }
     }
 }

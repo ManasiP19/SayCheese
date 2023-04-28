@@ -8,6 +8,7 @@ namespace FinalProj
 {
     public interface ObserverIF
     {
-        public void notify(PromotionalOffer oif);
+        public void notify(ObservableIF oif);
+        public string getID(); 
     }
 }

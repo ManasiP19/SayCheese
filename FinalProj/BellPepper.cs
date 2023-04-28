@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace FinalProj
 {
-    internal class BellPepper : AddOn 
+    public class BellPepper : AbsSandwichIngredients
     {
+        public BellPepper() {
+            setPrice(2.00);
+
+        }
+       
     }
 }

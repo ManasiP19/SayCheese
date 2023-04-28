@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace FinalProj
 {
-    public interface HamNCheeseIngredientsIF: SandwichCompIF
+    public class Chips: Side
     {
+        public Chips() {
+            setPrice( 4.50);
+        }
     }
 }

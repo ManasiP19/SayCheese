@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace FinalProj
 {
-    internal class Ketchup : Sauce
+    public  class Ketchup : Sauce
     {
+        public Ketchup()
+        {
+           
+        }
     }
 }

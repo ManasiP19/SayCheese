@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace FinalProj
 {
-    internal class Sauce : AddOn 
+    public class Sauce : AbsSandwichIngredients
     {
+        public Sauce() 
+        {
+            setPrice(0.10); 
+        }
+        
+     
+
+    
     }
 }

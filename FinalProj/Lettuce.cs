@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace FinalProj
 {
-    public class Lettuce: AddOn
+    public class Lettuce: AbsSandwichIngredients
     {
         public Lettuce()
         {
-
+            setPrice(0.25);
         }
+
+        
     }
 }

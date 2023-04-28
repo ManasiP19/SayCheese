@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace FinalProj
 {
-    internal class Mayonnaise : Sauce
+    public  class Mayonnaise : Sauce
     {
+        public Mayonnaise() {
+           
+        }
     }
 }

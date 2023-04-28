@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Accessibility;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -16,14 +17,23 @@ namespace FinalProj
         private ProgressForm progform;
         private PromotionForm promoform;
         public bool promoChecked;
-        private ObservableIF observable; 
+        private ObservableIF observable;
+        public string id; 
 
         private AbsOrder order = new AbsOrder();
 
-        public Customer()
+        private OrderProgress orderProgress;  //future 
+        public Customer(string id)
         {
             orderform = new OrderForm(this);
+            this.id = id; 
+            orderform.label6.Text = "Customer " + id; 
             orderform.Show();
+        }
+
+        public string getID()
+        {
+            return id; 
         }
 
 
@@ -57,22 +67,29 @@ namespace FinalProj
 
             List<object> orderItems = new List<object>(); // list to store all items from the order placed by the customer
 
-            string cname;
-            // loop through the box with the list of order items, convert the names to their appropriate class objects and
-            // store them in a list
-            foreach (string item in orderform.listBox4.Items)
-            {
-                cname = String.Concat(item.Where(c => !Char.IsWhiteSpace(c)));
-                Type t = Type.GetType("FinalProj." + cname);
-                ConstructorInfo c = t.GetConstructor(Type.EmptyTypes);
-                object menuItem = c.Invoke(null);
+            Factory factory = new Factory();
+            orderItems = factory.createMenuItems(orderform.listBox4.Items);
+           
 
-                orderItems.Add(menuItem);
-            }
+            //string cname;
+            //// loop through the box with the list of order items, convert the names to their appropriate class objects and
+            //// store them in a list
+            //foreach (string item in orderform.listBox4.Items)
+            //{
+            //    Factory factory = new Factory();
+                
+            //    cname = String.Concat(item.Where(c => !Char.IsWhiteSpace(c)));
+            //    Type t = Type.GetType("FinalProj." + cname);
+            //    ConstructorInfo c = t.GetConstructor(Type.EmptyTypes);
+            //    object menuItem = c.Invoke(null);
+
+            //    orderItems.Add(menuItem);
+            //}
 
             int idx = 0;
             AbsSandwich currentSandwich = new AbsSandwich();
-            List<AddOn> addon = new List<AddOn>();
+            List<Drink> drinks = new List<Drink>();
+            List<Side> sides = new List<Side>();
 
             // loop through the list of order items and create the appropriate sandwiches
             foreach (Object item in orderItems)
@@ -84,11 +101,13 @@ namespace FinalProj
                     // if this is not the first iteration
                     if (idx == 1)
                     {
-                        // if there are add-ons in the list, add a SandwichWrapper object
-                        if (addon.Count != 0)
+                        // if there are meal components in the list, add a Meal object
+                        if (drinks.Count != 0 || sides.Count != 0)
                         {
-                            order.addItem(new SandwichWrapper(currentSandwich, addon));
-                            addon.Clear(); // clear the add-ons list to start a new sandwich
+                            order.addItem(new Meal(currentSandwich, drinks, sides));
+                            // clear the meal component lists
+                            drinks.Clear();
+                            sides.Clear();
                         }
                         // else add a Sandwich object
                         else
@@ -99,27 +118,36 @@ namespace FinalProj
                     idx = 1; // set flag to 1 to indicate that the first iteration has ended
                     currentSandwich = (AbsSandwich)item; // set the current sandwich to the new sandwich
                 }
-                // else if the current item is not a sandwich then it is either an add-on or ingredient and add it to its list
-                else //(!(item is AbsSandwich))
+                // else if the current item is not a sandwich then it is either an add-on ingredient or meal component and
+                // add it to its list
+                else
                 {
-                    if (item is AddOn)
+                    if (item is Drink)
                     {
-                        addon.Add((AddOn)item); // add add-on to the add-ons list
+                        drinks.Add((Drink)item); // add drinks to the drinks list 
+                    }
+                    else if (item is Side)
+                    {
+                        sides.Add((Side)item); //add sides to the sides list 
                     }
                     else
                     {
-                        currentSandwich.addIngredient((SandwichCompIF)item); // add sandwich's ingredients list with extraingredient
+                        currentSandwich.addIngredient((AbsSandwichIngredients)item); // add to ingredients list with extra ingredient
                     }
                 }
             }
 
             // once loop exited, add the final sandwich to the order list since a sandwich is always added during the next
-            // iteration as it needs to know if there are any more add-ons or ingredients
-            if (addon.Count != 0)
+            // iteration as it needs to know if there are any more add-ons ingredients or meal components
+            // if there are meal components in the list, add a Meal object
+            if (drinks.Count != 0 || sides.Count != 0)
             {
-                order.addItem(new SandwichWrapper(currentSandwich, addon));
-                addon.Clear();
+                order.addItem(new Meal(currentSandwich, drinks, sides));
+                // clear the meal components list to start a new sandwich
+                drinks.Clear();
+                sides.Clear();
             }
+            // else add a Sandwich object
             else
             {
                 order.addItem(currentSandwich);
@@ -130,24 +158,33 @@ namespace FinalProj
             {
                 order.addItem((AbsSandwich)orderItems[orderItems.Count-1]);
             }
-
-            foreach(MenuItemIF m in order.mif)
+           
+            foreach(var m in order.mif)
             {
-                Debug.WriteLine("Item in order " + m);
+                /* Debug.WriteLine("Item in order " + m.GetType());
+                 Debug.WriteLine("Item in order " + m);*/
+                Debug.WriteLine("Type of item " + m.GetType());
+               
             }
+            Debug.WriteLine("Total price: " + order.getPrice());
+            orderform.Hide();
+            orderProgress = new OrderProgress(order, id);
+            int status = orderProgress.getStatus();
+            ProgressForm progressForm = new ProgressForm(status, id);
+            progressForm.Show();
+            //orderform.Hide();  --to hide form from user once they submit 
         }
 
-
-        public void notify(PromotionalOffer oif )
+        public async void notify(ObservableIF oif )
         {
             //if customer has registered, then pull up the promo form and have it display every x seconds 
-            //PromotionalOffer promo = new PromotionalOffer(); 
-                PromotionForm promoform = new PromotionForm(oif);
-                promoform.Show();
-
-            
-            
-            
+            PromotionForm promoform = new PromotionForm(oif, this.id);
+            //display the promo form 
+            promoform.Show();
+            //leave the promoform on screen for 3 secs (pop up for 3s)
+            await Task.Delay(3000);
+            //close the promoform pop up after 3 s 
+            promoform.Close();
         }
     }
 }

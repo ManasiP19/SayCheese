@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace FinalProj
 {
-    public interface SandwichCompIF: MenuItemIF
+    public class Coffee: Drink 
     {
+
     }
 }

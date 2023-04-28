@@ -8,13 +8,14 @@ namespace FinalProj
 {
     public class AbsSandwich : MenuItemIF
     {
-        public List<SandwichCompIF> ingredients = new List<SandwichCompIF>();
-        double price; 
+        public List<AbsSandwichIngredients> ingredients = new List<AbsSandwichIngredients>();
+        double price;
+
         public AbsSandwich()
         {
 
         }
-        public double getPrice()
+        public virtual double getPrice()
         {
             return price; 
         }
@@ -25,14 +26,14 @@ namespace FinalProj
         }
 
         //add an extra ingredient to it (like extra cheese)
-        public void addIngredient(SandwichCompIF sif)
+        public void addIngredient(AbsSandwichIngredients sif)
         {
             ingredients.Add(sif);
         }
 
-       /* public void addIngredient(AddOn ao)
+        public override string ToString()
         {
-            SandwichWrapper wrapper = new SandwichWrapper(this, ao);
-        }*/
+            return "Sandwich"; 
+        }
     }
 }

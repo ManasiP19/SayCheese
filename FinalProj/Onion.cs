@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace FinalProj
 {
-    internal class Onion : AddOn
+    public class Onion : AbsSandwichIngredients
     {
+        public Onion()
+        {
+            setPrice(0.15);
+        }
     }
 }

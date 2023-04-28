@@ -30,8 +30,6 @@
         {
             listBox1 = new ListBox();
             label1 = new Label();
-            listBox2 = new ListBox();
-            label2 = new Label();
             listBox3 = new ListBox();
             label3 = new Label();
             checkBox1 = new CheckBox();
@@ -40,6 +38,11 @@
             label4 = new Label();
             listBox5 = new ListBox();
             label5 = new Label();
+            label6 = new Label();
+            listBox2 = new ListBox();
+            label2 = new Label();
+            listBox6 = new ListBox();
+            label7 = new Label();
             SuspendLayout();
             // 
             // listBox1
@@ -63,32 +66,11 @@
             label1.TabIndex = 1;
             label1.Text = "Menu";
             // 
-            // listBox2
-            // 
-            listBox2.FormattingEnabled = true;
-            listBox2.ItemHeight = 25;
-            listBox2.Location = new Point(500, 60);
-            listBox2.Margin = new Padding(4);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(236, 229);
-            listBox2.TabIndex = 2;
-            listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(513, 31);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(77, 25);
-            label2.TabIndex = 3;
-            label2.Text = "Add-On";
-            // 
             // listBox3
             // 
             listBox3.FormattingEnabled = true;
             listBox3.ItemHeight = 25;
-            listBox3.Location = new Point(773, 60);
+            listBox3.Location = new Point(560, 60);
             listBox3.Margin = new Padding(4);
             listBox3.Name = "listBox3";
             listBox3.Size = new Size(236, 229);
@@ -98,12 +80,13 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(773, 31);
+            label3.Location = new Point(560, 31);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(58, 25);
             label3.TabIndex = 5;
             label3.Text = "Sauce";
+            label3.Click += label3_Click;
             // 
             // checkBox1
             // 
@@ -151,26 +134,79 @@
             // 
             listBox5.FormattingEnabled = true;
             listBox5.ItemHeight = 25;
-            listBox5.Location = new Point(296, 71);
+            listBox5.Location = new Point(297, 60);
             listBox5.Name = "listBox5";
-            listBox5.Size = new Size(180, 204);
+            listBox5.Size = new Size(236, 229);
             listBox5.TabIndex = 10;
             listBox5.SelectedIndexChanged += listBox5_SelectedIndexChanged;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(297, 36);
+            label5.Location = new Point(297, 31);
             label5.Name = "label5";
             label5.Size = new Size(86, 25);
             label5.TabIndex = 11;
             label5.Text = "Add item";
+            label5.Click += label5_Click;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(-3, 6);
+            label6.Name = "label6";
+            label6.Size = new Size(59, 25);
+            label6.TabIndex = 12;
+            label6.Text = "label6";
+            // 
+            // listBox2
+            // 
+            listBox2.FormattingEnabled = true;
+            listBox2.ItemHeight = 25;
+            listBox2.Location = new Point(815, 60);
+            listBox2.Name = "listBox2";
+            listBox2.Size = new Size(227, 229);
+            listBox2.TabIndex = 13;
+            listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(817, 29);
+            label2.Name = "label2";
+            label2.Size = new Size(62, 25);
+            label2.TabIndex = 14;
+            label2.Text = "Drinks";
+            // 
+            // listBox6
+            // 
+            listBox6.FormattingEnabled = true;
+            listBox6.ItemHeight = 25;
+            listBox6.Location = new Point(1072, 59);
+            listBox6.Name = "listBox6";
+            listBox6.Size = new Size(207, 229);
+            listBox6.TabIndex = 15;
+            listBox6.SelectedIndexChanged += listBox6_SelectedIndexChanged;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(1073, 26);
+            label7.Name = "label7";
+            label7.Size = new Size(54, 25);
+            label7.TabIndex = 16;
+            label7.Text = "Sides";
             // 
             // OrderForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1033, 602);
+            ClientSize = new Size(1372, 602);
+            Controls.Add(label7);
+            Controls.Add(listBox6);
+            Controls.Add(label2);
+            Controls.Add(listBox2);
+            Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(listBox5);
             Controls.Add(label4);
@@ -179,8 +215,6 @@
             Controls.Add(checkBox1);
             Controls.Add(label3);
             Controls.Add(listBox3);
-            Controls.Add(label2);
-            Controls.Add(listBox2);
             Controls.Add(label1);
             Controls.Add(listBox1);
             Margin = new Padding(4);
@@ -194,8 +228,6 @@
 
         public ListBox listBox1;
         public Label label1;
-        public ListBox listBox2;
-        public Label label2;
         public ListBox listBox3;
         public Label label3;
         public CheckBox checkBox1;
@@ -204,5 +236,10 @@
         public Label label4;
         public ListBox listBox5;
         public Label label5;
+        public Label label6;
+        private ListBox listBox2;
+        private Label label2;
+        private ListBox listBox6;
+        private Label label7;
     }
 }
