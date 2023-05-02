@@ -52,7 +52,17 @@ namespace FinalProj
 
         public override string ToString()
         {
-            return "Meal (Wrapper)"; 
+            string mealName = "Meal: ";
+            mealName += sandwich.ToString() + " ";
+            foreach (var drink in drinks)
+            {
+                mealName += drink.ToString() + " ";
+            }
+            foreach(var side in sides)
+            {
+                mealName += side.ToString();
+            }
+            return mealName; 
         }
     }
 }

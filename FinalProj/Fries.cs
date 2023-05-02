@@ -9,5 +9,10 @@ namespace FinalProj
     public class Fries: Side
     {
         public Fries() { setPrice(1.50); }
+
+        public override string ToString()
+        {
+            return "Fries";
+        }
     }
 }

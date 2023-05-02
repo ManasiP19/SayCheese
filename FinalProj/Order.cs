@@ -27,20 +27,16 @@ namespace FinalProj
         public double getPrice()
         {
             double totalPrice = 0; 
-            foreach (MenuItemIF item in mif)
+            foreach (var item in mif)
             {
                 totalPrice += item.getPrice();
             }
             return totalPrice; 
         }
         
-        //private void timer_Tick(object sender, EventArgs e)
-        //{
-        //    Debug.WriteLine("Deferring to thread");
-            
-        //    //statusAvailable = true;
-        //}
+      
 
+        //get the status of the order
         //synchronized
         [MethodImpl(MethodImplOptions.Synchronized)]
         public int getStatus()
@@ -53,6 +49,7 @@ namespace FinalProj
             return status; 
         }
 
+        //set the status of the order
         //synchronized 
         [MethodImpl(MethodImplOptions.Synchronized)]
         public void setStatus(int status)

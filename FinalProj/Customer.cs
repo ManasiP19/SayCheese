@@ -32,13 +32,6 @@ namespace FinalProj
 
         public string getID() { return id; }
 
-        //add items to their order before it's been created 
-        //should show up in the order box 
-        public void addItem() { }
-
-        //remove items from their order before it's been created
-        //should be deleted from the order box display 
-        public void removeItem() { }
 
         //parse the order box items 
         //create each object from the order box
@@ -130,15 +123,16 @@ namespace FinalProj
             }
 
             // if the last item is a sandwich, add it to the order
-            if (orderItems.Count != 0 && orderItems[orderItems.Count-1] is Sandwich)
-            {
-                order.addItem((Sandwich)orderItems[orderItems.Count-1]);
-            }
+            //if (orderItems.Count > 1 && orderItems[orderItems.Count-1] is Sandwich)
+            //{
+            //    order.addItem((Sandwich)orderItems[orderItems.Count-1]);
+            //}
            
             foreach(var m in order.mif)
             {
                 Debug.WriteLine("Type of item " + m.GetType());
             }
+
             Debug.WriteLine("Total price: " + order.getPrice());
             orderProgress = new OrderProgress(order, id);
 

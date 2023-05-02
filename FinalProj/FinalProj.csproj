@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="SandwichIngredients.cs" />
     <Compile Remove="SandwichWrapper.cs" />
   </ItemGroup>
 

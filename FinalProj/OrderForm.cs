@@ -83,8 +83,8 @@ namespace FinalProj
             //if user selects add-ons or sauces, use wrapper to create them 
             //need to keep a list of whatever user has selected in the listboxes so that we can send that to the wrapper
             customer.createOrder();
-            OrderList.Text = "";
             PriceLabel.Text = "Total Price: $" + customer.getOrder().getPrice().ToString();
+            OrderList.Items.Clear();
         }
 
         //adds the selected menu item to the order box 

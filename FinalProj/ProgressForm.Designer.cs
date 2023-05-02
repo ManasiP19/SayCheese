@@ -35,6 +35,7 @@ namespace FinalProj
             this.CompletedLabel = new System.Windows.Forms.Label();
             this.OrderReadyLabel = new System.Windows.Forms.Label();
             this.Customer = new System.Windows.Forms.Label();
+            this.OrderLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ProgressBar
@@ -103,11 +104,25 @@ namespace FinalProj
             this.Customer.TabIndex = 7;
             this.Customer.Text = "label1";
             // 
+            // OrderLabel
+            // 
+            this.OrderLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.OrderLabel.AutoSize = true;
+            this.OrderLabel.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.OrderLabel.Location = new System.Drawing.Point(348, 229);
+            this.OrderLabel.Name = "OrderLabel";
+            this.OrderLabel.Size = new System.Drawing.Size(76, 31);
+            this.OrderLabel.TabIndex = 8;
+            this.OrderLabel.Text = "label1";
+            // 
             // ProgressForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 314);
+            this.Controls.Add(this.OrderLabel);
             this.Controls.Add(this.Customer);
             this.Controls.Add(this.OrderReadyLabel);
             this.Controls.Add(this.CompletedLabel);
@@ -133,5 +148,6 @@ namespace FinalProj
         public Label label6;
         public Label OrderReadyLabel;
         public Label Customer;
+        public Label OrderLabel;
     }
 }

@@ -1,3 +1,4 @@
+using FinalProj;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,18 +12,19 @@ namespace FinalProj
     //future 
     public class OrderProgress
     {
-        private AbsOrder order;
+        private Order order;
         private ProgressForm progressForm = new ProgressForm();
         System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
- 
-        public OrderProgress(AbsOrder order, string id) 
+
+        public OrderProgress(Order order, string id)
         {
             //create a runner thread to run in the bg before an OrderProgress object is instantiated
             //order is a common resource for OrderProgress obj and runner obj to compete with
             //orderprogress delegates to order to prep data i.e. setData() in bg
             this.order = order;
+
             progressForm.Customer.Text = "Customer " + id;
-            Task.Run(() => run()); 
+            Task.Run(() => run());
             t.Interval = 1000;
             t.Tick += new EventHandler(timer_Tick);
             t.Start();
@@ -32,28 +34,28 @@ namespace FinalProj
         {
             Debug.WriteLine("In OrderProgress: Timer started\n");
             Task.Run(() => run());
-            getStatus(); 
+            getStatus();
         }
 
-        public void run( )
+        public void run()
         {
             try
             {
                 order.setStatus(20);
-                Debug.WriteLine("In OrderProgress run(), status: "); 
+                Debug.WriteLine("In OrderProgress run(), status: ");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Debug.WriteLine(ex); 
+                Debug.WriteLine(ex);
             }
         }
 
         public int getStatus()
         {
-            Debug.WriteLine("In OrderProgress: getStatus()"); 
+            Debug.WriteLine("In OrderProgress: getStatus()");
             int status = order.getStatus();
 
-            if(progressForm.ProgressBar.Value >= 100 )
+            if (progressForm.ProgressBar.Value >= 100)
             {
                 progressForm.OrderReadyLabel.Visible = true;
                 progressForm.ProgressBar.Visible = false;
@@ -62,16 +64,31 @@ namespace FinalProj
                 progressForm.CompletedLabel.Visible = false;
                 progressForm.OrderReadyLabel.Text = "Your Order is ready!";
                 progressForm.ProgressBar.Value = 100;
+                progressForm.OrderLabel.Visible = true;
+                string orderList = "";
+                foreach (var item in order.mif)
+                {
+                    if (item is Meal)
+                    {
+                        orderList += item.ToString() + "\n";
+                    }
+                    else
+                    {
+                        orderList += item.ToString() + "\n";
+                    }
+                }
+                progressForm.OrderLabel.Text = orderList;
             }
             else
             {
                 Debug.WriteLine("status = " + status);
                 progressForm.ProgressBar.Value += status;
             }
-            
+
             progressForm.Show();
 
-            return status; 
+            return status;  
         }
     }
 }
+
